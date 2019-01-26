@@ -36,12 +36,10 @@ module.exports = (pluginContext) => {
             pluginContext.console.log('verbose', 'parsedData', parsedData);
             result = [];
             parsedData.forEach(item => {
-              preview_code = md.render(item[4]);
-              pluginContext.console.log('verbose', 'preview', preview_code);
               result.push({
                 title: item[2],
                 subtitle: item[3],
-                preview: preview_code,
+                preview: item[4],
                 value: item[0]
               });
             });
