@@ -12,22 +12,10 @@
       "args": "Optional",
       "script": "src/note.js",
       "connections": ["OpenNote"]
-    }, {
-      "id": "NoteIndexerRefresh",
-      "type": "Keyword",
-      "keyword": "noterefresh",
-      "title": "Rebuild Note Index",
-      "connections": [
-        "RefreshNote"
-      ]
     }],
     "output": [{
       "id": "OpenNote",
       "type": "OpenFile"
-    }, {
-      "id": "RefreshNote",
-      "type": "OpenInBrowser",
-      "url": "http://localhost:24306/refresh_index"
     }]
   }
 }
