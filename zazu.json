@@ -5,7 +5,7 @@
   "blocks": {
     "input": [
       {
-        "id": "NoteIndexer",
+        "id": "NoteSearch",
         "type": "PrefixScript",
         "prefix": "note",
         "space": true,
@@ -16,7 +16,16 @@
         ]
       },
       {
-        "id": "NoteIndexerRefresh",
+        "id": "NoteViewAll",
+        "type": "Keyword",
+        "keyword": "noteall",
+        "title": "View all notes in browser.",
+        "connections": [
+          "RefreshNote"
+        ]
+      },
+      {
+        "id": "NoteRefreshIndex",
         "type": "Keyword",
         "keyword": "noterefresh",
         "title": "Rebuild Note Index",
@@ -28,12 +37,27 @@
     "output": [
       {
         "id": "OpenNote",
-        "type": "OpenFile"
+        "type": "UserScript",
+        "script": "src/note_open.js",
+        "connections": [
+          "Display"
+        ]
+      },
+      {
+        "id": "ViewAllNotes",
+        "type": "OpenInBrowser",
+        "url": "http://localhost:24306/s/note_ui/dist/notes.html"
       },
       {
         "id": "RefreshNote",
         "type": "OpenInBrowser",
         "url": "http://localhost:24306/refresh_index"
+      },
+      {
+        "id": "Display",
+        "type": "SendNotification",
+        "title": "Hello world",
+        "message": "{value}"
       }
     ]
   }
