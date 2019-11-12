@@ -16,12 +16,23 @@
         ]
       },
       {
+        "id": "NoteNew",
+        "type": "PrefixScript",
+        "prefix": "notenew",
+        "space": true,
+        "args": "Optional",
+        "script": "src/note_path_list.js",
+        "connections": [
+          "NewNote"
+        ]
+      },
+      {
         "id": "NoteViewAll",
         "type": "Keyword",
         "keyword": "noteall",
         "title": "View all notes in browser.",
         "connections": [
-          "RefreshNote"
+          "ViewAllNotes"
         ]
       },
       {
@@ -44,6 +55,14 @@
         ]
       },
       {
+        "id": "NewNote",
+        "type": "UserScript",
+        "script": "src/note_new.js",
+        "connections": [
+          "Display"
+        ]
+      },
+      {
         "id": "ViewAllNotes",
         "type": "OpenInBrowser",
         "url": "http://localhost:24306/s/note_ui/dist/notes.html"
@@ -56,7 +75,7 @@
       {
         "id": "Display",
         "type": "SendNotification",
-        "title": "Hello world",
+        "title": "Zazu Message",
         "message": "{value}"
       }
     ]
